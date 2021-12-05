@@ -12,7 +12,7 @@ function useFetch(url) {
       setLoading(true);
       try {
         const username = 'likax';
-        const password = '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';
+        const password = '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';
         const headers = {
          Token: password
         };
