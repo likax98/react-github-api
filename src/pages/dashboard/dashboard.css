@@ -1,0 +1,33 @@
+.container__Dashboard {
+  background-color: rgb(245, 226, 226);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.userCard__Dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 80px;
+}
+
+.title__Dashboard {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 90px;
+}
+
+.loadMore__Dashboard {
+  padding: 10px;
+  width: 230px;
+  border-radius: 20px;
+  border: gray 1px solid;
+  margin: auto;
+  cursor: pointer;
+  font-size: x-large;
+}
+
+.loadMore__Dashboard:hover {
+  background-color: aqua;
+}

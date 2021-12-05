@@ -1,0 +1,53 @@
+.container__user {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  margin-top: 100px;
+}
+
+.left__user {
+  flex: 0.2;
+  padding-right: 10px;
+}
+
+.img__user {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20%;
+}
+
+.right__user {
+  flex: 0.7;
+}
+
+.description__user {
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.jobs__user {
+  padding-top: 80px;
+}
+
+.fav__user {
+  font-weight: 700;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+  cursor: pointer;
+}
+
+.fav__user:hover {
+  color: burlywood;
+}
+
+.is-fav-user {
+  background-color: yellow;
+}
+
+
+.is-not-fav-user {
+  background-color: black;
+}

@@ -1,0 +1,18 @@
+.repo__container {
+  margin-top: 20px;
+  border-bottom: 1px solid gray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 800px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.repo__footer {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.repo__Items {
+  padding: 5px;
+}

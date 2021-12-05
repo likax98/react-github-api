@@ -1,0 +1,42 @@
+.container__Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+  padding: 20px;
+}
+
+.logo {
+  padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active {
+  color: yellow;
+}
+
+.menuitems {
+  display: flex;
+  padding-right: 40px;
+}
+
+.menuitems > h4 {
+  padding-left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menuitems > h4:hover {
+  color: rgb(217, 238, 238);
+}
+
+.fav__Header {
+  padding-left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none !important;
+}

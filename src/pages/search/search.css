@@ -1,0 +1,18 @@
+.container__search {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.prompt__search {
+  width: 500px;
+  height: 25px;
+  outline: none;
+  border-radius: 20px;
+}
+
+.btn__search {
+  margin-top: 20px;
+  width: 200px;
+  padding: 5px;
+  border-radius: 10px;
+}
