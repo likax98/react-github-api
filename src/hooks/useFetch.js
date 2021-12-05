@@ -14,7 +14,7 @@ function useFetch(url) {
         const username = 'likax';
         const password = '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';
         const headers = {
-         Token: password
+       
         };
         console.log(headers);
 
