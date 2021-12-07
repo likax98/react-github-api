@@ -3,11 +3,14 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
 
 async function fetchData(url) {
+  const API_TOKEN = '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';
+  const headers = {
+    authorization: `token ${API_TOKEN}`,
+  };
+
   try {
     const response = await axios.get(`https://api.github.com/${url}`, {
-      headers: {
-        authorization: 'token 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'
-      }
+      headers,
     });
     return response.data;
   } catch (error) {

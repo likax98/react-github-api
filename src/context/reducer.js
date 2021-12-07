@@ -9,8 +9,8 @@ export const initialState = {
   },
   user: {
     loading: false,
-    isLogged: false,
     error: '',
+    data: null,
     repos: {
       loading: false,
       data: [],
@@ -34,7 +34,9 @@ const reducer = (state, action) => {
         ...state,
         users: {
           ...state.users,
-          data: [...state.users.data, ...action.payload.items],
+          data: state.users.data.length
+            ? [...state.users.data, ...action.payload.items]
+            : action.payload.items,
           total_count: action.payload.total_count,
           loading: false,
         },
@@ -47,11 +49,12 @@ const reducer = (state, action) => {
           loading: true,
         },
       };
-    case actions.SET_USERS_LOADING:
+    case actions.SET_USERS_ERROR:
       return {
         ...state,
         users: {
           ...state.users,
+          error: action.payload,
           loading: false,
         },
       };
@@ -62,7 +65,7 @@ const reducer = (state, action) => {
         ...state,
         user: {
           ...state.user,
-          isLogged: true,
+          data: action.payload,
           loading: false,
         },
       };
@@ -163,14 +166,14 @@ const reducer = (state, action) => {
     case actions.SET_FAVORITES:
       return {
         ...state,
-        fav: [...state.fav, action.payload],
+        favorites: [...state.favorites, action.payload],
       };
 
     case actions.REMOVE_FROM_FAVORITES:
-      const newFavs = state.fav.filter(({ id }) => id === action.payload);
+      const newFavs = state.favorites.filter(({ id }) => id === action.payload);
       return {
         ...state,
-        fav: newFavs,
+        favorites: newFavs,
       };
 
     default:

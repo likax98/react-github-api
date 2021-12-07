@@ -23,7 +23,7 @@ function Dashboard() {
     let isMounted = true;
     const url = `search/users?q=followers:>=${USER_MAX_FOLLOWERS}&page=${pageCount}&per_page=${LOAD_MORE_AMOUNT}`;
 
-    // იმ დისტ ფოლდერის მერე ეფექტში რაღაცეები მქონდა შეცვლილი და დაჟე მეც არ ველოდებოდი, კარგად მქონდა გატესტილი, არ მოაქვს აშკარად იგივე უზერები :)
+    // იმ დისტ ფოლდერის მერე ეფექტში რაღაცეები მქონდა და დაჟე მეც არ ველოდებოდი, კარგად მქონდა გატესტილი, არ მოაქვს აშკარად იგივე უზერები :)
 
     if (isMounted) {
       createEffect(

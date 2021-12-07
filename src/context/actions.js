@@ -1,5 +1,5 @@
 const ACTIONS = {
-  SET_USERS: 'SET_USER',
+  SET_USERS: 'SET_USERS',
   SET_USERS_LOADING: 'SET_USERS_LOADING',
   SET_USERS_ERROR: 'SET_USERS_ERROR',
   SET_USER: 'SET_USER',
@@ -8,6 +8,7 @@ const ACTIONS = {
   SET_USER_REPOS: 'SET_USER_REPOS',
   SET_USER_REPOS_LOADING: 'SET_USER_REPOS_LOADING',
   SET_USER_REPOS_ERROR: 'SET_USER_REPOS_ERROR',
+  SET_USER_ORGS: 'SET_USER_ORGS',
   SET_SEARCHED_USER: 'SET_SEARCHED_USER',
   SET_SEARCHED_USER_LOADING: 'SET_SEARCHED_USER_LOADING',
   SET_SEARCHED_USER_ERROR: 'SET_SEARCHED_USER_LOADING',
@@ -16,9 +17,7 @@ const ACTIONS = {
 };
 
 // USERS
-
 function setUsers(data) {
-  console.log(data)
   return {
     type: ACTIONS.SET_USERS,
     payload: data,
@@ -40,9 +39,10 @@ function setUsersError(data) {
 }
 
 // USER
-function setUser() {
+function setUser(data) {
   return {
     type: ACTIONS.SET_USER,
+    payload: data
   };
 }
 
@@ -61,7 +61,6 @@ function setUserError(data) {
 }
 
 // USER REPOS
-
 function setUserRepos(data) {
   return {
     type: ACTIONS.SET_USER_REPOS,
@@ -83,8 +82,15 @@ function setUserReposError(data) {
   };
 }
 
-// SEARCHED USER
+// USER REPOS
+function setUserOrgs(data) {
+  return {
+    type: ACTIONS.SET_USER_ORGS,
+    payload: data,
+  };
+}
 
+// SEARCHED USER
 function setSearchedUser(data) {
   return {
     type: ACTIONS.SET_SEARCHED_USER,
@@ -126,16 +132,18 @@ export {
   setUsers,
   setUsersLoading,
   setUsersError,
+  setUser,
   setUserLoading,
   setUserError,
   setUserRepos,
   setUserReposLoading,
   setUserReposError,
+  setUserOrgs,
   setSearchedUser,
   setSearchedLoading,
   setSearchedError,
-  setUser,
   setFavorites,
   removeFavorites,
 };
+
 export default ACTIONS;

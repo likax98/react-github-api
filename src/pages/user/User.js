@@ -1,27 +1,46 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useFetch } from 'hooks/useFetch';
 import { Loading, UserRepo, UserOrg } from '../../components';
-import APIENDPOINTS from 'config/apiEndopoints';
-import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from 'utils/constants';
 import { useStateValue } from 'context/StateProvider';
-import { removeFavorites, setFavorites } from 'context/actions';
+import { createEffect } from 'context/effects';
+import {
+  setUser,
+  setUserLoading,
+  setUserError,
+  setUserRepos,
+  setUserReposLoading,
+  setUserReposError,
+  setUserOrgs,
+  removeFavorites,
+  setFavorites,
+} from 'context/actions';
+import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from 'utils/constants';
+import { fetchData } from '../../http';
 import './user.css';
 
 function User() {
   const { username } = useParams();
   const [
     {
-      user: { loading, repos, orgs, data, error },
+     user, user: {
+        loading,
+        repos: { data: reposData, loading: reposLoading, error: reposError },
+        data: userDetail,
+        orgs,
+        error,
+      },
+      favorites,
     },
-    { favorites },
     dispatch,
   ] = useStateValue();
 
   useEffect(() => {
-    const isMounted = true;
+    let isMounted = true;
 
-    if(isMounted) {
-
+    if (isMounted) {
+      getUser();
+      getUserRepos();
+      getUserOrgs();
     }
 
     return () => {
@@ -30,7 +49,31 @@ function User() {
   }, []);
 
   function getUser() {
-    
+    const url = `users/${username}`;
+    createEffect(
+      dispatch,
+      fetchData.bind(this, url),
+      setUserLoading,
+      setUser,
+      setUserError
+    );
+  }
+
+  function getUserRepos() {
+    const url = `users/${username}/repos`;
+    createEffect(
+      dispatch,
+      fetchData.bind(this, url),
+      setUserReposLoading,
+      setUserRepos,
+      setUserReposError
+    );
+  }
+
+  function getUserOrgs() {
+    // აი ამაზეც ლოადერი უკვე ძაან აზელდა :დ
+    const url = `users/${username}/orgs`;
+    createEffect(dispatch, fetchData.bind(this, url), undefined, setUserOrgs);
   }
 
   const userIsFavorite = (userId) => favorites.find(({ id }) => id === userId);
@@ -45,8 +88,8 @@ function User() {
 
   return (
     <>
-      {/* <div className="container__user">
-        {isLoading && (
+      <div className="container__user">
+        {loading && (
           <div className="loader">
             <Loading />
           </div>
@@ -83,11 +126,17 @@ function User() {
               </div>
             </div>
             <div className="right__user">
-              {repos && (
+              {reposLoading && (
+                <div className="loader">
+                  <Loading />
+                </div>
+              )}
+              {reposError && <div>{error}</div>}
+              {reposData && (
                 <>
                   <h1>Repos</h1>
                   <div className="repos__user">
-                    {repos
+                    {reposData
                       ?.slice(0, USER_REPOS_MAX_AMOUNT)
                       .map(({ id, name, html_url, forks }) => (
                         <UserRepo
@@ -103,7 +152,7 @@ function User() {
             </div>
           </>
         )}
-      </div> */}
+      </div>
     </>
   );
 }
