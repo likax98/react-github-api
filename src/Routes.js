@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Login, Dashboard, Search, Favorites, NotFound } from './pages';
+import { Login, SignUp, Dashboard, Search, Favorites, NotFound } from './pages';
 import { User } from './components';
 import ROUTES from './config/routes';
 
@@ -18,7 +18,7 @@ function RoutesLibrary() {
         }
       ></Route>
       <Route path={ROUTES.LOGIN} element={<Login />} />
-      <Route path={ROUTES.SIGNUP} element={<Login />} />
+      <Route path={ROUTES.SIGNUP} element={<SignUp />} />
       <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
       <Route path={ROUTES.USER} element={<User />} />
       <Route path={ROUTES.SEARCH} element={<Search />} />

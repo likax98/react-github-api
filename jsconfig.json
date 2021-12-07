@@ -1,6 +1,7 @@
+// for nice imports
 {
-    "compilerOptions": {
-      "baseUrl": "src"
-    },
-    "include": ["src"]
-  }
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "exclude": ["node_modules/"]
+}

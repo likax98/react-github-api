@@ -1,9 +1,19 @@
-import PropTypes from "prop-types";
-import { useFetch } from 'hooks/useFetch';
-import APIENDPOINTS from 'config/apiEndopoints';
+import { useState, useEffect } from 'react';
+import { fetchData } from '../../http';
+import PropTypes from 'prop-types';
 
 function UserOrg({ name, avatar_url }) {
-  const { data: OrgDetails } = useFetch(`${APIENDPOINTS.ORGS}/${name}`);
+  const [OrgDetails, setOrgDetails] = useState('');
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      fetchData(`orgs/${name}`).then((org) => setOrgDetails(org));
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div>

@@ -57,7 +57,7 @@ function Dashboard() {
           <Loading />
         </div>
       )}
-      {error && <div>{error}</div>}
+      {error && <p className="error">{error}</p>}
       {data && (
         <div>
           <h1 className={classes.title__Dashboard}>github Users</h1>

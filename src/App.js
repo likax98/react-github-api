@@ -1,11 +1,18 @@
-import './App.css';
 import RoutesLibrary from './Routes';
+import { useStateValue } from 'context/StateProvider';
 import { Header } from './components';
+import './App.css';
 
 function App() {
+  const [
+    {
+      loggedUser: { isLogged },
+    },
+  ] = useStateValue();
+
   return (
     <main>
-      <Header />
+      {isLogged && <Header />}
       <RoutesLibrary />
     </main>
   );

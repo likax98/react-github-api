@@ -23,6 +23,11 @@ export const initialState = {
     data: null,
     error: '',
   },
+  loggedUser: {
+    loading: false,
+    isLogged: false,
+    error: '',
+  },
   favorites: [],
 };
 
@@ -162,14 +167,50 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-      case actions.REMOVE_SEARCHED_USER:
-        return {
-          ...state,
-          searchedUser: {
-            ...state.searchedUser,
-            data: null,
-          },
-        };
+    case actions.REMOVE_SEARCHED_USER:
+      return {
+        ...state,
+        searchedUser: {
+          ...state.searchedUser,
+          data: null,
+        },
+      };
+
+    // LOGGED USER
+    case actions.SET_LOGGED_USER:
+      return {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          isLogged: true,
+          loading: false,
+        },
+      };
+    case actions.SET_LOGGED_USER_LOADING:
+      return {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          loading: true,
+        },
+      };
+    case actions.SET_LOGGED_USER_ERROR:
+      return {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          error: action.payload,
+          loading: false,
+        },
+      };
+    case actions.REMOVE_LOGGED_USER:
+      return {
+        ...state,
+        loggedUser: {
+          ...state.loggedUser,
+          isLogged: false,
+        },
+      };
 
     //Favorites
     case actions.SET_FAVORITES:
@@ -179,10 +220,12 @@ const reducer = (state, action) => {
       };
 
     case actions.REMOVE_FROM_FAVORITES:
-      const newFavs = state.favorites.filter(({ id }) => id === action.payload);
+      const filteredFavs = state.favorites.filter(
+        ({ id }) => id !== action.payload
+      );
       return {
         ...state,
-        favorites: newFavs,
+        favorites: filteredFavs,
       };
 
     default:

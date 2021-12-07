@@ -11,10 +11,6 @@
   padding-left: 20px;
 }
 
-a {
-  text-decoration: none;
-}
-
 .active {
   color: yellow;
 }

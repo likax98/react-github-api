@@ -1,25 +1,28 @@
 import React from 'react';
 import { useStateValue } from 'context/StateProvider';
 import { removeFavorites } from 'context/actions';
-import './favorites.css';
+import * as classes from './favorites.module.css';
 
 function Favorites() {
-  const [{ fav }, dispatch] = useStateValue();
+  const [{ favorites }, dispatch] = useStateValue();
   const removeHandler = (id) => dispatch(removeFavorites(id));
 
   return (
-    <div className="container__favorite">
+    <div className={classes.container__favorite}>
       <h1>Favorites</h1>
-      <div className="items__favorite">
-        {fav.map(({id , login, avatar_url }) => (
+      <div className={classes.items__favorite}>
+        {favorites.map(({ id, login, avatar_url }) => (
           <span key={id}>
-            <h4>{login}</h4>
+            <h4>Username: {login}</h4>
             <img
-              className="img__favorite"
+              className={classes.img__favorite}
               src={avatar_url}
               alt="favorite user"
             />
-            <button onClick={() => removeHandler(id)} className="btn__favorite">
+            <button
+              onClick={() => removeHandler(id)}
+              className={classes.btn__favorite}
+            >
               remove
             </button>
           </span>

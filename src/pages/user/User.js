@@ -17,7 +17,7 @@ import {
 import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from 'utils/constants';
 // რაღაც სხვა http-დან მოქონდა
 import { fetchData } from '../../http';
-import './user.css';
+import * as classes from './user.module.css';
 
 function User() {
   const { username } = useParams();
@@ -89,28 +89,28 @@ function User() {
 
   return (
     <>
-      <div className="container__user">
+      <div className={classes.container__user}>
         {loading && (
           <div className="loader">
             <Loading />
           </div>
         )}
-        {error && <div>{error}</div>}
+        {error && <p className="error">{error}</p>}
         {userDetail && (
           <>
-            <div className="left__user">
+            <div className={classes.left__user}>
               <img
-                className="img__user"
+                className={classes.img__user}
                 src={userDetail?.avatar_url}
                 alt="user"
               />
               <p
                 onClick={() => favHandler(userDetail?.id)}
                 className={
-                  ('fav__user',
+                  (classes['fav__user'],
                   userIsFavorite(userDetail?.id)
-                    ? 'is-fav-user'
-                    : 'is-not-fav-user')
+                    ? classes['is-fav-user']
+                    : classes['is-not-fav-user'])
                 }
               >
                 Add to favorite ⭐
@@ -118,7 +118,7 @@ function User() {
               {userDetail.bio && <div>Bio: {userDetail?.bio}</div>}
               <p>Followers: {userDetail?.followers}</p>
               <p>Following: {userDetail?.following}</p>
-              <div className="orgs">
+              <div className={classes.orgs}>
                 {orgs
                   ?.slice(0, USER_ORGS_MAX_AMOUNT)
                   .map(({ id, login: name, avatar_url }) => (
@@ -126,7 +126,7 @@ function User() {
                   ))}
               </div>
             </div>
-            <div className="right__user">
+            <div className={classes.right__user}>
               {reposLoading && (
                 <div className="loader">
                   <Loading />
@@ -136,7 +136,7 @@ function User() {
               {reposData && (
                 <>
                   <h1>Repos</h1>
-                  <div className="repos__user">
+                  <div className={classes.repos__user}>
                     {reposData
                       ?.slice(0, USER_REPOS_MAX_AMOUNT)
                       .map(({ id, name, html_url, forks }) => (

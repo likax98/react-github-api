@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './userCard.css';
+import * as classes from './userCard.module.css';
 
 function UserCard({ image, name, followers, following }) {
   return (
     <Link to={`/users/${name}`}>
-      <div className="container__UserCard">
-        <h1 className="name__UserCard">{name}</h1>
-        <img className="img__UserCard" src={image} loading="lazy" alt="user" />
+      <div className={classes.container__UserCard}>
+        <h1 className={classes.name__UserCard}>{name}</h1>
+        <img className={classes.img__UserCard} src={image} loading="lazy" alt="user" />
         <p>Followers: {followers}</p>
         <p>Following: {following}</p>
       </div>

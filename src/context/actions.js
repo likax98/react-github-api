@@ -12,7 +12,11 @@ const ACTIONS = {
   SET_SEARCHED_USER: 'SET_SEARCHED_USER',
   SET_SEARCHED_USER_LOADING: 'SET_SEARCHED_USER_LOADING',
   SET_SEARCHED_USER_ERROR: 'SET_SEARCHED_USER_LOADING',
-  REMOVE_SEARCHED_USER: "REMOVE_SEARCHED_USER",
+  REMOVE_SEARCHED_USER: 'REMOVE_SEARCHED_USER',
+  SET_LOGGED_USER: 'SET_LOGGED_USER',
+  SET_LOGGED_USER_LOADING: 'SET_LOGGED_USER_LOADING',
+  SET_LOGGED_USER_ERROR: 'SET_LOGGED_USER_ERROR',
+  REMOVE_LOGGED_USER: "REMOVE_LOGGED_USER",
   SET_FAVORITES: 'SET_FAV',
   REMOVE_FROM_FAVORITES: 'REMOVE_FROM_FAV',
 };
@@ -43,7 +47,7 @@ function setUsersError(data) {
 function setUser(data) {
   return {
     type: ACTIONS.SET_USER,
-    payload: data
+    payload: data,
   };
 }
 
@@ -113,15 +117,41 @@ function setSearchedError(data) {
   };
 }
 
-
 function removeSearchedUser() {
   return {
     type: ACTIONS.REMOVE_SEARCHED_USER,
   };
 }
 
-// FAVORITES
+// LOGGED USER
+function setLoggedUser(data) {
+  return {
+    type: ACTIONS.SET_LOGGED_USER,
+    payload: data,
+  };
+}
 
+function setLoggedUserLoading(data) {
+  return {
+    type: ACTIONS.SET_LOGGED_USER_LOADING,
+    payload: data,
+  };
+}
+
+function setLoggedUserError(data) {
+  return {
+    type: ACTIONS.SET_LOGGED_USER_ERROR,
+    payload: data,
+  };
+}
+
+function removeLoggedUser() {
+  return {
+    type: ACTIONS.REMOVE_LOGGED_USER,
+  };
+}
+
+// FAVORITES
 function setFavorites(data) {
   return {
     type: ACTIONS.SET_FAVORITES,
@@ -151,6 +181,10 @@ export {
   setSearchedLoading,
   setSearchedError,
   removeSearchedUser,
+  setLoggedUser,
+  setLoggedUserLoading,
+  setLoggedUserError,
+  removeLoggedUser,
   setFavorites,
   removeFavorites,
 };

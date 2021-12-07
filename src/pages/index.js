@@ -1,7 +1,8 @@
 import { Dashboard } from './dashboard/Dashboard';
 import { Favorites } from './favorites/Favorites';
 import { Login } from './login/Login';
+import { SignUp } from './signup/SignUp';
 import { Search } from './search/Search';
 import { NotFound } from './notFound/NotFound';
 
-export { Login, Dashboard, Search, Favorites, NotFound };
+export { Login, SignUp, Dashboard, Search, Favorites, NotFound };

@@ -1,3 +1,3 @@
-import { isEmpty } from './isEmpty';
+import { isEmptyObject } from './isEmptyObject';
 
-export { isEmpty };
+export { isEmptyObject };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Loading, UserCard } from 'components';
 import {
   setSearchedUser,
@@ -9,7 +9,7 @@ import {
 import { createEffect } from 'context/effects';
 import { useStateValue } from 'context/StateProvider';
 import { fetchData } from '../../http';
-import './search.css';
+import * as classes from './search.module.css';
 
 function Search() {
   const [username, setUsername] = useState('');
@@ -28,6 +28,10 @@ function Search() {
     isSubmitted(false);
   };
 
+  useEffect(() => {
+    dispatch(removeSearchedUser());
+  }, []);
+
   function getSearchedUser() {
     const url = `users/${username}`;
     createEffect(
@@ -41,7 +45,7 @@ function Search() {
 
   function submitHandler(e) {
     e.preventDefault();
-    if(submit) return;
+    if (submit) return;
     if (data) {
       dispatch(removeSearchedUser());
     }
@@ -51,10 +55,10 @@ function Search() {
 
   return (
     <>
-      <div className="container__search">
-        <div className="input__search">
+      <div className={classes.container__search}>
+        <div className={classes.input__search}>
           <input
-            className="prompt__search"
+            className={classes.prompt__search}
             placeholder="search username here..."
             type="text"
             value={username}
@@ -63,7 +67,7 @@ function Search() {
         </div>
 
         <button
-          className="btn__search"
+          className={classes.btn__search}
           type="submit"
           disabled={!username}
           onClick={submitHandler}
@@ -75,7 +79,7 @@ function Search() {
             <Loading />
           </div>
         )}
-        {error && <div>{error}</div>}
+        {error && <p className="error">{error}</p>}
         {data && (
           <UserCard
             image={data?.avatar_url}
