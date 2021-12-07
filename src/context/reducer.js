@@ -149,6 +149,7 @@ const reducer = (state, action) => {
         ...state,
         searchedUser: {
           ...state.searchedUser,
+          error: action.payload,
           loading: false,
         },
       };
@@ -161,6 +162,14 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
+      case actions.REMOVE_SEARCHED_USER:
+        return {
+          ...state,
+          searchedUser: {
+            ...state.searchedUser,
+            data: null,
+          },
+        };
 
     //Favorites
     case actions.SET_FAVORITES:

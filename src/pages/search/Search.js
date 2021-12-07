@@ -1,27 +1,52 @@
 import React, { useState } from 'react';
-import { useFetch } from 'hooks/useFetch';
-import APIENDPOINTS from 'config/apiEndopoints';
 import { Loading, UserCard } from 'components';
+import {
+  setSearchedUser,
+  setSearchedLoading,
+  setSearchedError,
+  removeSearchedUser,
+} from 'context/actions';
+import { createEffect } from 'context/effects';
+import { useStateValue } from 'context/StateProvider';
+import { fetchData } from '../../http';
 import './search.css';
 
 function Search() {
   const [username, setUsername] = useState('');
-  const [url, setUrl] = useState('');
-  const {
-    data: searchedUser,
-    isLoading,
-    error,
-    setData,
-    setError,
-  } = useFetch(url);
+  // ერთიდაიგივე დასერჩილზე 2ჯერ რო არ შვრას
+  const [submit, isSubmitted] = useState(false);
 
-  const onChangeHandler = ({ target: { value } }) => setUsername(value.trim());
+  const [
+    {
+      searchedUser: { loading, data, error },
+    },
+    dispatch,
+  ] = useStateValue();
+
+  const onChangeHandler = ({ target: { value } }) => {
+    setUsername(value.trim());
+    isSubmitted(false);
+  };
+
+  function getSearchedUser() {
+    const url = `users/${username}`;
+    createEffect(
+      dispatch,
+      fetchData.bind(this, url, 'Sorry, user does not exist!'),
+      setSearchedLoading,
+      setSearchedUser,
+      setSearchedError
+    );
+  }
 
   function submitHandler(e) {
     e.preventDefault();
-    setData(null);
-    setError(null);
-    setUrl(`${APIENDPOINTS.USERS}/${username}`);
+    if(submit) return;
+    if (data) {
+      dispatch(removeSearchedUser());
+    }
+    getSearchedUser();
+    isSubmitted(true);
   }
 
   return (
@@ -45,14 +70,19 @@ function Search() {
         >
           Search
         </button>
-        {isLoading && (
+        {loading && (
           <div className="loader">
             <Loading />
           </div>
         )}
         {error && <div>{error}</div>}
-        {searchedUser && (
-          <UserCard image={searchedUser?.avatar_url} name={username} />
+        {data && (
+          <UserCard
+            image={data?.avatar_url}
+            name={data?.login}
+            followers={data?.followers}
+            following={data?.following}
+          />
         )}
       </div>
     </>

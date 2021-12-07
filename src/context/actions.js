@@ -12,6 +12,7 @@ const ACTIONS = {
   SET_SEARCHED_USER: 'SET_SEARCHED_USER',
   SET_SEARCHED_USER_LOADING: 'SET_SEARCHED_USER_LOADING',
   SET_SEARCHED_USER_ERROR: 'SET_SEARCHED_USER_LOADING',
+  REMOVE_SEARCHED_USER: "REMOVE_SEARCHED_USER",
   SET_FAVORITES: 'SET_FAV',
   REMOVE_FROM_FAVORITES: 'REMOVE_FROM_FAV',
 };
@@ -112,6 +113,13 @@ function setSearchedError(data) {
   };
 }
 
+
+function removeSearchedUser() {
+  return {
+    type: ACTIONS.REMOVE_SEARCHED_USER,
+  };
+}
+
 // FAVORITES
 
 function setFavorites(data) {
@@ -142,6 +150,7 @@ export {
   setSearchedUser,
   setSearchedLoading,
   setSearchedError,
+  removeSearchedUser,
   setFavorites,
   removeFavorites,
 };

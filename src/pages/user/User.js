@@ -15,6 +15,7 @@ import {
   setFavorites,
 } from 'context/actions';
 import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from 'utils/constants';
+// რაღაც სხვა http-დან მოქონდა
 import { fetchData } from '../../http';
 import './user.css';
 
@@ -22,7 +23,7 @@ function User() {
   const { username } = useParams();
   const [
     {
-     user, user: {
+      user: {
         loading,
         repos: { data: reposData, loading: reposLoading, error: reposError },
         data: userDetail,
