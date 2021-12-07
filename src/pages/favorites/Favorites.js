@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStateValue } from 'context/StateProvider';
-import { removeFav } from 'context/actions';
+import { removeFavorites } from 'context/actions';
 import './favorites.css';
 
 function Favorites() {
   const [{ fav }, dispatch] = useStateValue();
-  const removeHandler = (id) => dispatch(removeFav(id));
+  const removeHandler = (id) => dispatch(removeFavorites(id));
 
   return (
     <div className="container__favorite">

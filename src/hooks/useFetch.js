@@ -16,7 +16,6 @@ function useFetch(url) {
         const headers = {
        
         };
-        console.log(headers);
 
         const response = await fetch(url, {
           signal: controller.signal,
