@@ -1,3 +1,10 @@
+  # ENV
+  // REACT_APP_GITHUB_API_URL = https://api.github.com
+  // REACT_APP_AUTH_API_URL = https://comm-auth.kapo.dev/auth
+  // SKIP_PREFLIGHT_CHECK=true
+  // REACT_APP_API_TOKEN =
+  // webpack-ის ვერსიასთან აქვს პრობლემა და ეს ბოლო მაგიტო დამჭირდა
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -173,7 +173,7 @@ const reducer = (state, action) => {
         searchedUser: {
           ...state.searchedUser,
           error: action.payload,
-          loading: false,
+          loading: true,
         },
       };
     }

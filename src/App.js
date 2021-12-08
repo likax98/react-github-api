@@ -14,15 +14,12 @@ function App() {
   //   REACT_APP_GITHUB_API_URL = https://api.github.com
   // REACT_APP_AUTH_API_URL = https://comm-auth.kapo.dev/auth
   // SKIP_PREFLIGHT_CHECK=true
+  // REACT_APP_API_TOKEN =
   // webpack-ის ვერსიასთან აქვს პრობლემა და ეს ბოლო მაგიტო დამჭირდა
 
   // თუ ბლოგისთვის ან სადმე დასადებად დაჭირდებათ ქასთომ დიზაინიც მაქ და ვერ მოვასწარი
   // გადაწყობა, თუ ოქეი იქნება შენგან მერე გადავაწყობ სტილებს
   // https://drive.google.com/file/d/1zpPZi_TbgMVz-DNr5wBc4SvJvwwz3PHI/view?usp=sharing
-
-  // Netlify https://focused-spence-411068.netlify.app
-  // Github-დან არ ქნა, ტოკენი მოვხსენი და ისე მაქვს ატანილი, ქასთიმ კონფიგურაციები
-  // არ დამიყენებია netlify-ზე და რავი მაინც
 
   //
   return (
