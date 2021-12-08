@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStateValue } from 'context/StateProvider';
-import { removeFavorites } from 'context/actions';
+import { useStateValue } from '../../context/StateProvider';
+import { removeFavorites } from '../../context/actions';
 import * as classes from './favorites.module.css';
 
 function Favorites() {

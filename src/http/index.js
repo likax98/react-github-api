@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_GITHUB_API_URL;
+// https://api.github.com
 
 async function fetchData(url, errorMessage = null) {
   const API_TOKEN = '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';
@@ -9,7 +10,7 @@ async function fetchData(url, errorMessage = null) {
   };
 
   try {
-    const response = await axios.get(`https://api.github.com/${url}`, {
+    const response = await axios.get(`${API_URL}/${url}`, {
       headers,
     });
     return response.data;

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Loading, UserCard } from 'components';
+import { Loading, UserCard } from '../../components';
 import {
   setSearchedUser,
   setSearchedLoading,
   setSearchedError,
   removeSearchedUser,
-} from 'context/actions';
-import { createEffect } from 'context/effects';
-import { useStateValue } from 'context/StateProvider';
+} from '../../context/actions';
+import { createEffect } from '../../context/effects';
+import { useStateValue } from '../../context/StateProvider';
 import { fetchData } from '../../http';
 import * as classes from './search.module.css';
 

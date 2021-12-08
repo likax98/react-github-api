@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useStateValue } from 'context/StateProvider';
+import { useNavigate, Link } from 'react-router-dom';
+import { useStateValue } from '../../context/StateProvider';
 import { signInUser } from '../../http/auth';
 import {
   setLoggedUser,
   setLoggedUserError,
   setLoggedUserLoading,
-} from 'context/actions';
-import { createEffect } from 'context/effects';
-import { validations } from 'utils/validations';
-import ROUTES from 'config/routes';
+} from '../../context/actions';
+import { createEffect } from '../../context/effects';
+import { validations } from '../../utils/validations';
+import { isEmptyObject } from '../../utils/functions';
+import ROUTES from '../../config/routes';
 import * as classes from './login.module.css';
-import { isEmptyObject } from 'utils/functions';
 
 function Login() {
   const navigate = useNavigate();
@@ -84,6 +84,7 @@ function Login() {
         </button>
       )}
       {error && <p className="error">{error}</p>}
+      <h4>Do not have an account yet? <Link to={ROUTES.SIGNUP}>Sign Up</Link></h4>
     </form>
   );
 }

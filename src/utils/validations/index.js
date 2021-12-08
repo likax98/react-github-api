@@ -5,7 +5,7 @@ import {
   USERNAME_MAX_LENGTH,
   PASSWORD_MAX_LENGTH,
   FIRST_LAST_NAME_MAX_LENGTH,
-} from 'utils/constants';
+} from '../constants';
 
 function validations(control, value) {
   const errors = {};

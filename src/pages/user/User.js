@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loading, UserRepo, UserOrg } from '../../components';
-import { useStateValue } from 'context/StateProvider';
-import { createEffect } from 'context/effects';
+import { useStateValue } from '../../context/StateProvider';
+import { createEffect } from '../../context/effects';
 import {
   setUser,
   setUserLoading,
@@ -13,8 +13,8 @@ import {
   setUserOrgs,
   removeFavorites,
   setFavorites,
-} from 'context/actions';
-import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from 'utils/constants';
+} from '../../context/actions';
+import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from '../../utils/constants';
 // რაღაც სხვა http-დან მოქონდა
 import { fetchData } from '../../http';
 import * as classes from './user.module.css';

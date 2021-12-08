@@ -34,7 +34,7 @@ export const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     // USERS
-    case actions.SET_USERS:
+    case actions.SET_USERS: {
       return {
         ...state,
         users: {
@@ -46,7 +46,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.SET_USERS_LOADING:
+    }
+
+    case actions.SET_USERS_LOADING: {
       return {
         ...state,
         users: {
@@ -54,7 +56,9 @@ const reducer = (state, action) => {
           loading: true,
         },
       };
-    case actions.SET_USERS_ERROR:
+    }
+
+    case actions.SET_USERS_ERROR: {
       return {
         ...state,
         users: {
@@ -63,9 +67,10 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
+    }
 
     // USER
-    case actions.SET_USER:
+    case actions.SET_USER: {
       return {
         ...state,
         user: {
@@ -74,7 +79,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.SET_USER_LOADING:
+    }
+
+    case actions.SET_USER_LOADING: {
       return {
         ...state,
         user: {
@@ -82,7 +89,9 @@ const reducer = (state, action) => {
           loading: true,
         },
       };
-    case actions.SET_USER_ERROR:
+    }
+
+    case actions.SET_USER_ERROR: {
       return {
         ...state,
         user: {
@@ -91,9 +100,10 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
+    }
 
     // USER REPOS
-    case actions.SET_USER_REPOS:
+    case actions.SET_USER_REPOS: {
       return {
         ...state,
         user: {
@@ -105,7 +115,9 @@ const reducer = (state, action) => {
           },
         },
       };
-    case actions.SET_USER_REPOS_LOADING:
+    }
+
+    case actions.SET_USER_REPOS_LOADING: {
       return {
         ...state,
         user: {
@@ -116,7 +128,9 @@ const reducer = (state, action) => {
           },
         },
       };
-    case actions.SET_USER_REPOS_ERROR:
+    }
+
+    case actions.SET_USER_REPOS_ERROR: {
       return {
         ...state,
         user: {
@@ -128,9 +142,10 @@ const reducer = (state, action) => {
           },
         },
       };
+    }
 
     // USER ORGS
-    case actions.SET_USER_ORGS:
+    case actions.SET_USER_ORGS: {
       return {
         ...state,
         user: {
@@ -138,9 +153,10 @@ const reducer = (state, action) => {
           orgs: action.payload,
         },
       };
+    }
 
     // SEARCHED USER
-    case actions.SET_SEARCHED_USER:
+    case actions.SET_SEARCHED_USER: {
       return {
         ...state,
         searchedUser: {
@@ -149,7 +165,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.SET_SEARCHED_USER_LOADING:
+    }
+
+    case actions.SET_SEARCHED_USER_LOADING: {
       return {
         ...state,
         searchedUser: {
@@ -158,7 +176,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.SET_SEARCHED_USER_ERROR:
+    }
+
+    case actions.SET_SEARCHED_USER_ERROR: {
       return {
         ...state,
         searchedUser: {
@@ -167,7 +187,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.REMOVE_SEARCHED_USER:
+    }
+
+    case actions.REMOVE_SEARCHED_USER: {
       return {
         ...state,
         searchedUser: {
@@ -175,9 +197,10 @@ const reducer = (state, action) => {
           data: null,
         },
       };
+    }
 
     // LOGGED USER
-    case actions.SET_LOGGED_USER:
+    case actions.SET_LOGGED_USER: {
       return {
         ...state,
         loggedUser: {
@@ -186,7 +209,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.SET_LOGGED_USER_LOADING:
+    }
+
+    case actions.SET_LOGGED_USER_LOADING: {
       return {
         ...state,
         loggedUser: {
@@ -194,7 +219,9 @@ const reducer = (state, action) => {
           loading: true,
         },
       };
-    case actions.SET_LOGGED_USER_ERROR:
+    }
+
+    case actions.SET_LOGGED_USER_ERROR: {
       return {
         ...state,
         loggedUser: {
@@ -203,7 +230,9 @@ const reducer = (state, action) => {
           loading: false,
         },
       };
-    case actions.REMOVE_LOGGED_USER:
+    }
+
+    case actions.REMOVE_LOGGED_USER: {
       return {
         ...state,
         loggedUser: {
@@ -211,15 +240,17 @@ const reducer = (state, action) => {
           isLogged: false,
         },
       };
+    }
 
     //Favorites
-    case actions.SET_FAVORITES:
+    case actions.SET_FAVORITES: {
       return {
         ...state,
         favorites: [...state.favorites, action.payload],
       };
+    }
 
-    case actions.REMOVE_FROM_FAVORITES:
+    case actions.REMOVE_FROM_FAVORITES: {
       const filteredFavs = state.favorites.filter(
         ({ id }) => id !== action.payload
       );
@@ -227,6 +258,7 @@ const reducer = (state, action) => {
         ...state,
         favorites: filteredFavs,
       };
+    }
 
     default:
       return state;

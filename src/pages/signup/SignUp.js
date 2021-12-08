@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useStateValue } from 'context/StateProvider';
+import { useNavigate, Link } from 'react-router-dom';
 import { signUpUser } from '../../http/auth';
 import {
   setLoggedUser,
   setLoggedUserError,
   setLoggedUserLoading,
-} from 'context/actions';
-import { createEffect } from 'context/effects';
-import { validations } from 'utils/validations';
-import { isEmptyObject } from 'utils/functions';
-import ROUTES from 'config/routes';
+} from '../../context/actions';
+import { useStateValue } from '../../context/StateProvider';
+import { createEffect } from '../../context/effects';
+import { validations } from '../../utils/validations';
+import { isEmptyObject } from '../../utils/functions';
+import ROUTES from '../../config/routes';
 import * as classes from './signUp.module.css';
 
 function SignUp() {
@@ -22,7 +22,6 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [formErrors, setFormErrors] = useState({});
-
   const [
     {
       loggedUser: { loading, error },
@@ -142,6 +141,7 @@ function SignUp() {
         </button>
       )}
       {error && <p className="error">{error}</p>}
+      <h3>Already a user? <Link to={ROUTES.MAIN}>Login</Link></h3>
     </form>
   );
 }
