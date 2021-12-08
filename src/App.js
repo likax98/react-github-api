@@ -20,6 +20,10 @@ function App() {
   // გადაწყობა, თუ ოქეი იქნება შენგან მერე გადავაწყობ სტილებს
   // https://drive.google.com/file/d/1zpPZi_TbgMVz-DNr5wBc4SvJvwwz3PHI/view?usp=sharing
 
+  // Netlify https://focused-spence-411068.netlify.app
+  // Github-დან არ ქნა, ტოკენი მოვხსენი და ისე მაქვს ატანილი, ქასთიმ კონფიგურაციები
+  // არ დამიყენებია netlify-ზე და რავი მაინც
+
   //
   return (
     <main>
