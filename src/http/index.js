@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_GITHUB_API_URL;
 // https://api.github.com
+const API_TOKEN = process.env.REACT_APP_API_TOKEN;
 
 async function fetchData(url, errorMessage = null) {
-  const API_TOKEN = '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';
   const headers = {
     authorization: `token ${API_TOKEN}`,
   };
