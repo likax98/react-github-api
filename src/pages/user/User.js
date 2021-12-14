@@ -15,7 +15,6 @@ import {
   setFavorites,
 } from '../../context/actions';
 import { USER_REPOS_MAX_AMOUNT, USER_ORGS_MAX_AMOUNT } from '../../utils/constants';
-// რაღაც სხვა http-დან მოქონდა
 import { fetchData } from '../../http';
 import * as classes from './user.module.css';
 
@@ -72,7 +71,6 @@ function User() {
   }
 
   function getUserOrgs() {
-    // აი ამაზეც ლოადერი უკვე ძაან აზელდა :დ
     const url = `users/${username}/orgs`;
     createEffect(dispatch, fetchData.bind(this, url), undefined, setUserOrgs);
   }

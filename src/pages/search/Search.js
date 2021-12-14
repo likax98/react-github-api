@@ -13,7 +13,6 @@ import * as classes from './search.module.css';
 
 function Search() {
   const [username, setUsername] = useState('');
-  // ერთიდაიგივე დასერჩილზე 2ჯერ რო არ შვრას
   const [submit, isSubmitted] = useState(false);
 
   const [

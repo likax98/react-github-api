@@ -22,11 +22,9 @@ function Dashboard() {
   ] = useStateValue();
 
   useEffect(() => {
-    // ეს არვიცი რამდენად ოქეია, წავიკითხე სულ უნდა გაწმინდოო და ფიდბექი მომწერე თუ შეძლებ
     let isMounted = true;
     const url = `search/users?q=followers:>=${USER_MAX_FOLLOWERS}&page=${pageCount}&per_page=${LOAD_MORE_AMOUNT}`;
 
-    // რაც ვნახე აღარ მოაქვს იგივე უზერები, სხვანაირად მქონდა გაკეთებული, გადავაწყვე და slice ჩამრჩა
     if (isMounted) {
       createEffect(
         dispatch,
