@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import * as classes from './userRepo.module.css';
+import * as classes from './userrepo.module.css';
 function UserRepo({ name, url, forks }) {
   return (
     <div className={classes.repo__container}>

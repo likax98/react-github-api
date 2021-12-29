@@ -6,10 +6,17 @@ function UserCard({ image, name, followers, following }) {
   return (
     <Link to={`/users/${name}`}>
       <div className={classes.container__UserCard}>
-        <h1 className={classes.name__UserCard}>{name}</h1>
-        <img className={classes.img__UserCard} src={image} loading="lazy" alt="user" />
-        <p>Followers: {followers}</p>
-        <p>Following: {following}</p>
+        <img
+          className={classes.img__UserCard}
+          src={image}
+          loading="lazy"
+          alt="user"
+        />
+        <div className={classes.wrap}>
+          <h1 className={classes.name__UserCard}>{name}</h1>
+          <p>Followers: <br/> {followers}</p>
+          <p>Following: <br/> {following}</p>
+        </div>
       </div>
     </Link>
   );

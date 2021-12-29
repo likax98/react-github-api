@@ -1,24 +1,36 @@
 .container__UserCard {
-  width: 300px;
-  height: 500px;
+  width: 320px;
+  height: 218px;
   padding-bottom: 20px;
-  border: 1px solid gray;
-  margin: 10px;
+  border: none;
+  margin: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px;
+  background-color: rgba(15,77,128, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
+  border-radius: 3px;
 }
 
 .img__UserCard {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   padding-top: 10px;
 }
 
 .name__UserCard {
   text-align: center;
-  color: blueviolet;
+  font-size: 18px;
+  padding-left: 20px;
+  color: #0f4d80 !important;
+}
+
+.wrap {
+  display: flex;
+  font-size: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0f4d80 !important;
 }

@@ -17,7 +17,7 @@ function Header() {
   return (
     <div className={classes.container__Header}>
       <NavLink to={`${ROUTES.DASHBOARD}`}>
-        <img src="/images/logo.png" alt="logo" />
+      <h4 className={classes.fav__logo}>Github API</h4>
       </NavLink>
       <div className={classes.menuitems}>
         <NavLink

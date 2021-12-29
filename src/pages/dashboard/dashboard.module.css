@@ -1,5 +1,4 @@
 .container__Dashboard {
-  background-color: rgb(245, 226, 226);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: aqua;
+  background-color: #0f4d80;
+  height: 130px;
   padding: 20px;
 }
 
@@ -12,12 +13,16 @@
 }
 
 .active {
-  color: yellow;
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+  text-underline-position: under;
+  text-decoration-color: aqua;
 }
 
 .menuitems {
   display: flex;
   padding-right: 40px;
+  
 }
 
 .menuitems > h4 {
@@ -34,5 +39,14 @@
   padding-left: 15px;
   font-size: 20px;
   cursor: pointer;
-  text-decoration: none !important;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.fav__logo {
+  padding-left: 15px;
+  font-size: 35px;
+  cursor: pointer;
+  padding-bottom: 10px;
+  color: white;
 }
