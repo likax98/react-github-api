@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const AUTH_API_URL = process.env.REACT_APP_AUTH_API_URL;
-// https://comm-auth.kapo.dev/auth
 
 async function authUser(params, query) {
   try {
