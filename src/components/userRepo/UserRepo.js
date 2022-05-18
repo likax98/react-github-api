@@ -7,7 +7,6 @@ function UserRepo({ name, url, forks }) {
         <h2>{name}</h2>
 
         <div className={classes.repo__footer}>
-          {/* ადგილის შესავსებად */}
           <p className={classes.repo__Items}>Forks: {forks}</p>
         </div>
       </a>
